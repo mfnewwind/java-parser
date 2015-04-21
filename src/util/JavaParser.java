@@ -45,6 +45,7 @@ public class JavaParser {
         unit.recordModifications();// ASTへの操作履歴のようなものを有効に
         // 解析実行
         visitor = new Visitor(unit);
-        unit.accept(visitor);		
+        unit.accept(visitor);
+        Print.printMessage("END", "parse end");
 	}
 }

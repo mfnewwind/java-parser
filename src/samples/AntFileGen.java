@@ -267,6 +267,8 @@ public final class AntFileGen implements java.lang.Cloneable {
 	}
 
 	/**
+	 * 
+	 * テストメソッド
 	 * @param flg
 	 *            the debugFlg to set
 	 */
