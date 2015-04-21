@@ -28,6 +28,7 @@ public final class AntFileGen implements java.lang.Cloneable {
 
 	/**
 	 * 
+	 * 最高のメソッドだぜ
 	 * @param arg
 	 */
 	public static void main(String arg[]) {
