@@ -12,8 +12,6 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 
 public class JavaParser {
 	
-	private static ASTVisitor visitor = new Visitor(); 
-	
 	public static void main(String[] args) throws Exception {
 		
 		System.out.println("boot JavaParser");
@@ -25,6 +23,7 @@ public class JavaParser {
 	
 	private static void parse(SourceFile sourceFile) {
 		CompilationUnit unit;
+		Visitor visitor;
         ASTParser astParser = ASTParser.newParser(AST.JLS4);
         // 以下の setBindingsRecovery setStatementsRecovery はおまじない．
         // 完成しているソースコードを解析する時は呼ぶ必要ない．
@@ -45,6 +44,7 @@ public class JavaParser {
         unit = (CompilationUnit) astParser.createAST(new NullProgressMonitor());
         unit.recordModifications();// ASTへの操作履歴のようなものを有効に
         // 解析実行
+        visitor = new Visitor(unit);
         unit.accept(visitor);		
 	}
 }

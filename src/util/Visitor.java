@@ -3,6 +3,7 @@ package util;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.IVariableBinding;
@@ -11,6 +12,14 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public class Visitor extends ASTVisitor{
+	
+	private CompilationUnit mUnit;
+	
+	public Visitor(CompilationUnit unit) {
+		super();
+		mUnit = unit;
+	}
+	
 	 /**
      * クラス宣言が見つかると呼ばれるメソッド
      */
@@ -34,6 +43,8 @@ public class Visitor extends ASTVisitor{
         Print.printTitle("フィールド宣言");
         Print.printModifiers("Modifiers", node.getModifiers());
         Print.printMessage("Type", node.getType().toString());
+        int startLine = mUnit.getLineNumber(node.getStartPosition());
+        Print.printMessage("startPosition", Integer.toString(startLine));
         List fragments = node.fragments();
         for (Object frg : fragments) {
             if (frg instanceof VariableDeclarationFragment) {
@@ -54,6 +65,10 @@ public class Visitor extends ASTVisitor{
         Print.printModifiers("Modifiers", node.getModifiers());
         Print.printMessage("ReturnType", node.getReturnType2() + "");
         Print.printMessage("Parameters", node.parameters().toString());
+        mUnit.getCommentList();
+        int startLine = mUnit.getLineNumber(node.getStartPosition());
+        Print.printMessage("startPosition", Integer.toString(startLine));
+        
         return super.visit(node);
     }
 }
