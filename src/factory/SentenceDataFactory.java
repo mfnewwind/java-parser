@@ -25,7 +25,13 @@ public class SentenceDataFactory {
 		mHoldComment   = "";
 	}
 	
-	
+	/**
+	 * SentenceDataの作成
+	 * @param type
+	 * @param name
+	 * @param line
+	 * @return
+	 */
 	public SentenceData createSentenceData(String type, String name, int line) {
 		SentenceData sentence = new SentenceData();
 		sentence.setType(type);
@@ -40,18 +46,32 @@ public class SentenceDataFactory {
 	}
 	
 	
+	/**
+	 * 保持しておくクラス名を登録
+	 * @param className
+	 */
 	public void registerHoldClassName(String className) {
 		this.mHoldClassName = className;
 	}
 	
+	/**
+	 * 保持しておくコメントを登録
+	 * @param comment
+	 */
 	public void registerHoldComment(String comment) {
 		this.mHoldComment = comment;
 	}
 	
+	/**
+	 * 保持していたクラス名を消す
+	 */
 	public void refreshHoldClassName() {
 		mHoldClassName = "";
 	}
 	
+	/**
+	 * 保持していコメントを消す
+	 */
 	public void refreshHoldComment() {
 		mHoldComment = "";
 	}
