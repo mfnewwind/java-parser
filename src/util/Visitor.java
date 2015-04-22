@@ -90,6 +90,21 @@ public class Visitor extends ASTVisitor{
     }
     
     /**
+     * ローカル変数が見つかると呼ばれる
+     */
+    public boolean visit(VariableDeclarationFragment node) {
+    	String type = "variable";
+    	String name = node.getName().getFullyQualifiedName();
+    	int    line = this.mUnit.getLineNumber(node.getStartPosition());
+    	
+    	// Sentence生成&リスト登録
+        SentenceData sentence = mSentenceDataFactory.createSentenceData(type, name, line);
+        mSentenceDataList.add(sentence);
+    	
+    	return super.visit(node);
+    }
+    
+    /**
      * メソッド宣言が見つかると呼ばれる
      */
     public boolean visit(MethodDeclaration node) {
