@@ -34,7 +34,8 @@ public class SentenceData {
 		return name;
 	}
 	
-	public String getClassName() {
+	// TODO:キャメルとスネークが混ざっててキモい。
+	public String getClass_name() {
 		return class_name;
 	}
 	
@@ -59,7 +60,7 @@ public class SentenceData {
 		this.name = name;
 	}
 	
-	public void setClassName(String className) {
+	public void setClass_name(String className) {
 		this.class_name = className;
 	}
 	

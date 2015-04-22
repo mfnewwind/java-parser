@@ -30,7 +30,7 @@ public class SentenceDataFactory {
 		SentenceData sentence = new SentenceData();
 		sentence.setType(type);
 		sentence.setName(name);
-		sentence.setClassName(mHoldClassName);
+		sentence.setClass_name(mHoldClassName);
 		sentence.setComment(mHoldComment);
 		sentence.setLine(line);
 		
