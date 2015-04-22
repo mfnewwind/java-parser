@@ -1,12 +1,6 @@
 package main;
 
-import model.Response;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import util.JavaParser;
-import util.Print;
 
 public class Main {
 	
@@ -16,7 +10,6 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		String       response = "";
-		ObjectMapper mapper   = new ObjectMapper();
 //		System.out.println("boot JavaParser ");
 		
 		// ファイルパス取得
