@@ -25,7 +25,7 @@ public class Main {
 		JavaParser parser = new JavaParser();
 		try {
 			String parseResult = parser.parseToJsonString(filePath);
-			response = createResponse("succes", parseResult);
+			response = createResponse("success", parseResult);
 		} catch (Exception e) {
 			response = createResponse("fail", "parse failed"); 
 		}
