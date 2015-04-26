@@ -2,6 +2,11 @@ package main;
 
 import util.JavaParser;
 
+/**
+ * メイン
+ * @author kazuma
+ *
+ */
 public class Main {
 	
 	/**
@@ -39,6 +44,12 @@ public class Main {
 	// create Response methods
 	// --------------------------------------------
 	
+	/**
+	 * レスポンスを作成します
+	 * @param status
+	 * @param result
+	 * @return
+	 */
 	private static String createResponse(String status, String result) {
 		String response = "{\"status\":\"" + status + "\""
 						+ ",\"result\":" + result + "}";
