@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.SentenceData;
+import model.SentenceDataManager;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.dom.AST;
@@ -30,13 +31,14 @@ public class JavaParser {
 		unit.recordModifications();// ASTへの操作履歴のようなものを有効に	
 		
 		// Visitorの作成
-		Visitor visitor = new Visitor(unit, list);;
+		Visitor visitor = new Visitor(unit);;
 		
         // 解析実行
         unit.accept(visitor);
 //        Print.printMessage("END", "parse end, result size = " + list.size());
         
 //        Print.printMessage("sentence", mapper.writeValueAsString(list));
+        list = SentenceDataManager.getInstance().getSentenceDataList();
         return mapper.writeValueAsString(list);
 	}
 	
