@@ -35,9 +35,8 @@ public class JavaParser {
 		
         // 解析実行
         unit.accept(visitor);
-//        Print.printMessage("END", "parse end, result size = " + list.size());
         
-//        Print.printMessage("sentence", mapper.writeValueAsString(list));
+        // 解析終了後マネージャーからリストを取得して
         list = SentenceDataManager.getInstance().getSentenceDataList();
         return mapper.writeValueAsString(list);
 	}

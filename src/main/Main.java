@@ -15,7 +15,6 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		String       response = "";
-//		System.out.println("boot JavaParser ");
 		
 		// ファイルパス取得
 		String filePath = "src/main/Main.java"; // TODO:Eclipse build用　必要なくなれば消す
@@ -24,7 +23,6 @@ public class Main {
 		} catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("error: ArrayIndexOutOfBoundsException, ファイルを指定してくれ");
 		}
-//		System.out.println("file path = " + filePath);
 		
 		// パース処理
 		JavaParser parser = new JavaParser();

@@ -1,6 +1,5 @@
 package factory;
 
-import util.Print;
 import model.SentenceData;
 import model.SentenceDataManager;
 
@@ -50,7 +49,6 @@ public class SentenceDataFactory {
 		int sentenceStartLine = ++endLine;
 		int index = 0;
 		for (SentenceData sentence : mSentenceDataManager.getSentenceDataList()) {
-			Print.printMessage("プリントします", sentence.getName()+ "---> " + sentence.getLine() + " ==" +sentenceStartLine);
 			if (sentence.getLine() == sentenceStartLine) {
 				sentence.setComment(comment);
 				mSentenceDataManager.getSentenceDataList().set(index, sentence);
@@ -119,12 +117,10 @@ public class SentenceDataFactory {
 	 * @return
 	 */
 	private String fetchComment(int nameLine) {
-		Print.printMessage("ホールドされているもの", mHoldComment);
 		String comment = "";
 		if (mHoldComment.equals("")) return comment;
 		
 		int commentLine = nameLine++;
-		Print.printMessage("メイン", ""+commentLine +":"+mHoldCommentEndLine);
 		if (commentLine == mHoldCommentEndLine) {
 			comment = mHoldComment;
 			refreshHoldComment();
